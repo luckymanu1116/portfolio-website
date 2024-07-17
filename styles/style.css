@@ -100,9 +100,3 @@ ul li {
 ul li strong {
   color: #f39c12;
 }
-
-section#home {
-  background: url('../images/background.jpg') no-repeat center center;
-  background-size: cover;
-  color: #ecf0f1;
-}
