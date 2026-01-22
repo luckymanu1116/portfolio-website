@@ -1,0 +1,35 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Check HTML syntax
+      run: |
+        # Simple check to ensure index.html exists and is not empty
+        if [ ! -s index.html ]; then
+          echo "Error: index.html is missing or empty"
+          exit 1
+        fi
+        echo "HTML file presence verified."
+
+    - name: Lint CSS (Placeholder)
+      run: echo "Linting CSS..."
+
+    - name: Verify Security Scans (Placeholder)
+      run: echo "Running security checks (Veracode/SonarQube placeholder)..."

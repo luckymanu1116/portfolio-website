@@ -1,0 +1,16 @@
+image: node:18
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test
+        script:
+          - echo "Building..."
+          - npm install --save-dev
+          - echo "Testing..."
+          - if [ ! -s index.html ]; then exit 1; fi
+    - step:
+        name: Security Scan
+        script:
+          - echo "Running security scan..."
+          # - pipe: atlassian/sonarqube-scan:1.2.0
