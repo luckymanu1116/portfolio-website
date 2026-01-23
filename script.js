@@ -122,4 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Contact Form Autoresponse ---
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => {
+            const nameInput = document.getElementById('name');
+            const autoresponseInput = document.getElementById('autoresponse');
+            if (nameInput && autoresponseInput) {
+                const name = nameInput.value;
+                autoresponseInput.value = `Hello ${name},<br><br>Thank you for your message. I will get back to you as soon as possible.<br><br>Best regards,<br><br>Manoj Guttikonda`;
+            }
+        });
+    }
+
 });
